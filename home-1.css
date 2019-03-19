@@ -1,0 +1,75 @@
+.moviecard{
+	width: 250px;
+	height: 330px;
+	margin: 60px;
+	/*background-color: #33F6FF;*/
+	background-color: pink;
+	float: left;
+	border-radius: 20px;
+	padding-top: 20px;
+	background-image: linear-gradient(#ff5050,#ff6699,#ff5050); 
+	text-align: center;
+	font-style: italic;
+	color: gold;
+	text-shadow: 2px 2px black;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+/*.moviecard:hover{
+	background-color:red;
+}*/
+#moviecard:hover {
+  background-color: yellow;
+}
+
+/*.heading{
+
+	width: 100%;
+	height: 50px;
+	color: white;
+	text-align: center;
+	
+}
+*/
+.img
+{
+width: 250px;
+height: 250px;
+float: left;
+
+
+}
+
+#NameAndReview{
+	margin-left: 30px;
+	margin-top: 15px;
+	width: 70%;
+	height: 150px;
+	background-color: pink;
+	background-image: linear-gradient(grey,white,pink); 
+
+}
+
+.loginFrontPage{
+	background-color: #33F6FF;
+	padding: 50px;
+	border-radius: 20px;
+	width: 20%;
+}
+.right-nav
+		{
+			background: #3e3b3a;
+   			width: 100%;
+    		height: 50px;
+		}
+.email{
+			float: right;
+			color: #fff;
+		}
+ .body
+		{
+			background-image: linear-gradient(black,white,blue);
+
+
+		}
+		

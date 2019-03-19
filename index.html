@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+
+</head>
+<body style="background-color: pink">
+	<div class="login_form">
+<h2 align="center">LOGIN</h2>
+			<table align="center">
+
+				<tr>
+					
+					<td colspan="2"><input type="email" name="user" id="username" placeholder="Email"></td>
+				</tr>
+				<tr>
+					
+					<td colspan="2"><input type="Password" name="pass" id="password" placeholder="Password"></td>
+				</tr>
+				<tr>
+					
+					<td><button class="button" type="button" id="login">Login</button></td>
+					<td><button class="button" type="button" id="reset">Reset</button></td>
+				</tr>
+			</table>
+		<!-- </form> -->
+	</div>
+<script type="text/javascript">
+	var defaultusername = 'shilpasoni4991@gmail.com';
+	var defaultpassword = 'shilpa';
+	document.getElementById("login").onclick = function() {
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		if (defaultpassword == password && defaultusername == username) {
+			sessionStorage.username = username;
+			window.location.href = "moviecard.html?username="+username;
+		} else {
+			alert('Wrong Username or Password missmatch');
+		}
+	};
+	document.getElementById("reset").onclick = function() {
+		document.getElementById("username").value = "";
+		document.getElementById("password").value = "";
+	}
+
+</script>
+</body>
+</html>
