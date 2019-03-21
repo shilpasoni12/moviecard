@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<link rel="stylesheet" type="text/css" href="home-1.css">
-
-	<title>moviecard</title>
-	<style type="text/css">
-		
-	</style>
-
+    <link rel="stylesheet" type="text/css" href="home-1.css">
+    <title>moviecard</title>
 </head>
-	<body background="image/mm2.jpg" >
-		<nav>
-		<div class="right-nav">
-			<label class="email" id="username"></label>
-			
-		</div>
+<body background="image/mm2.jpg" >
+	<nav>
+	    <div class="right-nav">
+		<label class="email" id="username"></label>
+	    </div>
 	</nav>
-
-		<div id="maindiv">
+	     <div id="maindiv">
 		<div class="heading" id="heading">
-			<!-- <h2 style="color: white;float: left;" id="username"></h2> -->
-
-	<input type="text" value="" onkeyup="searchMovie(this.value)" name="search" id="search" placeholder="search"></div>
+			<input type="text" value="" onkeyup="searchMovie(this.value)" name="search" id="search" placeholder="search">
+		</div>
 		<div id="listdiv">
 		</div>
-	</div>
-<script type="text/javascript">
-				// if(sessionStorage.username){
-					document.getElementById("username").innerHTML = sessionStorage.username;
-				// }
-				
-
-				localStorage.setItem("movieObjectList",JSON.stringify([{name: "Maayanadi",rating: 9.5,review :"Maathen, who works for a gang, is on the run after accidentally killing a police officer. However, his decision to meet his beloved Aparna before moving out of the country puts his life in danger.",image:"image/index.jpg "},
+	     </div>
+	<script type="text/javascript">
+		document.getElementById("username").innerHTML = sessionStorage.username;
+		//localstorage to store details
+		localStorage.setItem("movieObjectList",JSON.stringify([
+			{name: "Maayanadi",rating: 9.5,review :"Maathen, who works for a gang, is on the run after accidentally killing a police officer. However, his decision to meet his beloved Aparna before moving out of the country puts his life in danger.",image:"image/index.jpg "},
 
 			{name: "Vijay superum pournamiyum",rating: 8.5,review :"A young engineering student dreams of becoming a chef, much to the dismay of his family.",image:"image/vijay.jpg"},
 			
@@ -48,63 +38,26 @@
 			{name: "Vimanam",rating: 7.2,review :"Venkidi, an aeronautics enthusiast with hearing disabilities, faces many struggles as he attempts to build an aircraft using recycled materials.",image: "image/vimanam.jpg"}]));
 		
 		var movieObjectListArray = JSON.parse(localStorage.getItem("movieObjectList"));
-		// alert(movieObjectListArray[0]["name"]);
-
-		function review(i){
+                function review(i){
 			var movieName = movieObjectListArray[i]["name"];
 			var review = movieObjectListArray[i]["review"];
 			var username = movieObjectListArray[i]["username"];
 			window.location.href = "review.html?movieName="+movieName+"&review="+review+"&username="+ username;
 		}
-
-
 		var divContent = "";
-		// alert(movieObjectListArray.length);
-		
 		for(var i = 0 ; i< movieObjectListArray.length; i++){
 			divContent = divContent + '<div class="moviecard"  onclick="review(' + i + ')" id="moviecard' + i + '"><div><img class="img" src="' + movieObjectListArray[i]["image"] + '"></div><div class="heading" ><h3>' + movieObjectListArray[i]["name"] + '</h3></div><div class="rating"><h5>' + movieObjectListArray[i]["rating"] + '/10</h5></div></div>';
 		}
-		
 		document.getElementById('listdiv').innerHTML = divContent;
-		
-					var SearchString = "";
-
-			function searchMovie(SearchString){
-
-
-				var divContent = "";
-				
-				for (var i = 0; i < movieObjectListArray.length; i++) {
-					var movie = movieObjectListArray[i]["name"];
-					if (SearchString.search(movie) > -1) {
-
-						divContent = divContent + 
-						'<div class="moviecard"  onclick="review(' + i + ')" id="moviecard' + i + '">\
-							<div id="imageDiv"><img src="' + movieObjectListArray[i]["image"] + '">\
-							</div>\
-							<div >\
-								<h3 class="movieNameAndRating">' + movieObjectListArray[i]["name"] + 
-								'</h3>\
-							</div>\
-							<div>\
-									<h5 class="movieNameAndRating">' + movieObjectListArray[i]["rating"] + '/10\
-									</h5>\
-							</div>\
-						</div>';
-					}
-				}
-			
-					document.getElementById('listdiv').innerHTML = divContent;
-				}
-
 		var SearchString = "";
-			function searchMovie(SearchString){
+		//function to search movie
+		function searchMovie(SearchString){
 			var divContent = "";
 				for (var i = 0; i < movieObjectListArray.length; i++) {
 				var movie = movieObjectListArray[i]["name"];
 				movie = movie.toUpperCase(movie);
 				SearchString = SearchString.toUpperCase(SearchString);
-					if (SearchString.search(movie) > -1) {
+					if (movie.search(SearchString) > -1) {
 					divContent = divContent + 
 					'<div class="moviecard"  onclick="review(' + i + ')" id="moviecard' + i + '">\
 						<div id="imageDiv"><img class="image" src="' + movieObjectListArray[i]["image"] + '">\
